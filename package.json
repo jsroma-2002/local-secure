@@ -1,7 +1,10 @@
 {
   "name": "local-secure",
+  "author": "jroncal",
+  "description": "A repository for testing next,js and other fancy tools. :D",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=9.5.0",
@@ -11,7 +14,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettier": "prettier --write .",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.0.2",
@@ -23,6 +28,7 @@
     "clsx": "^1.2.1",
     "eslint": "8.44.0",
     "eslint-config-next": "^12.0.4",
+    "husky": "^8.0.3",
     "lucide-react": "^0.258.0",
     "next": "13.4.8",
     "postcss": "8.4.24",
@@ -33,5 +39,9 @@
     "tailwindcss": "3.3.2",
     "tailwindcss-animate": "^1.0.6",
     "typescript": "5.1.6"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6"
   }
 }
