@@ -1,7 +1,10 @@
 {
   "name": "local-secure",
+  "author": "jroncal",
+  "description": "A repository for testing next,js and other fancy tools. :D",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=9.5.0",
@@ -11,7 +14,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettier": "prettier --write ."
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.0.2",
