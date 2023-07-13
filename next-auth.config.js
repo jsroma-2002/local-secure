@@ -1,27 +1,33 @@
-import NextAuth from 'next-auth';
-import Providers from 'next-auth/providers';
-
 const options = {
   providers: [
-    Providers.Credentials({
-      // The name to display on the sign-in form (e.g., "Sign in with...").
-      name: 'Credentials',
+    {
       credentials: {
         username: { label: 'Username', type: 'text' },
         password: { label: 'Password', type: 'password' },
       },
       authorize: async (credentials) => {
-        // Implement your own authentication logic here.
-        // Validate the provided username and password against your user database.
-        // Return user object if authentication is successful, otherwise throw an error.
-        const user = { id: 1, name: 'John Doe', email: 'john@example.com' };
+        // Validate the provided username and password against your user database
+        const { username, password } = credentials;
+        const user = await yourDatabase.findUserByUsername(username);
+
+        if (!user) {
+          throw new Error('User not found');
+        }
+
+        const isValidPassword = await yourPasswordValidationFunction(password, user.password);
+
+        if (!isValidPassword) {
+          throw new Error('Invalid password');
+        }
+
+        // If authentication is successful, return the user object
         return Promise.resolve(user);
       },
-    }),
+    },
   ],
   pages: {
-    signIn: '/login', // The URL of your custom login page
+    signIn: '/login',
   },
 };
 
-export default (req, res) => NextAuth(req, res, options);
+module.exports = options;
