@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { signInWithGoogle } from 'your-google-auth-library'; // Replace with your actual Google authentication library
+import { signInWithGoogle } from 'your-google-auth-library'; 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
